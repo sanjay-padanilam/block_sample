@@ -1,5 +1,6 @@
 import 'package:block_sample/color_Screen/bloc/colorscreen_bloc.dart';
-import 'package:block_sample/color_Screen/view/colorscreen.dart';
+
+import 'package:block_sample/fakestore_Screen/view/fakestore.dart';
 import 'package:block_sample/view/homescreen/bloc/homescreen_bloc.dart';
 
 import 'package:flutter/material.dart';
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: Colorscreen(),
+      home: fakestore_Screen(),
     );
   }
 }
