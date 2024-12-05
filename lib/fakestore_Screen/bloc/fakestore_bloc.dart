@@ -1,10 +1,10 @@
 import 'package:bloc/bloc.dart';
+import 'package:block_sample/fakestore_Screen/bloc/fakestore_state.dart';
 import 'package:block_sample/model/product_res_model.dart';
 import 'package:equatable/equatable.dart';
 import 'package:http/http.dart' as http;
 
 part 'fakestore_event.dart';
-part 'fakestore_state.dart';
 
 class FakestoreBloc extends Bloc<FakestoreEvent, FakestoreState> {
   FakestoreBloc() : super(FakestoreInitial()) {
@@ -14,13 +14,15 @@ class FakestoreBloc extends Bloc<FakestoreEvent, FakestoreState> {
       try {
         final response = await http.get(url);
         if (response.statusCode == 200) {
-          onApisucess(productlist: productrResModelFromJson(response.body));
+          emit(onApisucess(
+              productlist: productrResModelFromJson(response.body)));
+
           //susecc
         } else {
-          onApifail();
+          emit(onApifail());
         } //fail
       } catch (e) {
-        onException();
+        emit(onException());
       } //error
     });
   }

@@ -1,4 +1,5 @@
 import 'package:block_sample/color_Screen/bloc/colorscreen_bloc.dart';
+import 'package:block_sample/fakestore_Screen/bloc/fakestore_bloc.dart';
 
 import 'package:block_sample/fakestore_Screen/view/fakestore.dart';
 import 'package:block_sample/view/homescreen/bloc/homescreen_bloc.dart';
@@ -14,6 +15,10 @@ void main() {
     ),
     BlocProvider(
       create: (context) => ColorscreenBloc(),
+      child: Container(),
+    ),
+    BlocProvider(
+      create: (context) => FakestoreBloc()..add(FetchproductsEvent()),
       child: Container(),
     )
   ], child: MyApp()));
